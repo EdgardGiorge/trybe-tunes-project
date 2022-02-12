@@ -10,6 +10,7 @@ import Search from './pages/Search';
 
 // Mentoria técnica em 07/02 as 15:30 Instrutor Daniel Farias
 // Mentoria técnica em 07/02 as 18:00 Instrutor Eduardo Santos
+// Grupo de Estudos
 
 class App extends Component {
   render() {
