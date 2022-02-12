@@ -8,6 +8,9 @@ import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search';
 
+// Mentoria técnica em 07/02 as 15:30 Instrutor Daniel Farias
+// Mentoria técnica em 07/02 as 18:00 Instrutor Eduardo Santos
+
 class App extends Component {
   render() {
     return (
