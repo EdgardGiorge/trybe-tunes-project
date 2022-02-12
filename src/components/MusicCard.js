@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
 import Card from './Card';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 // Ref. Estudo em grupo em sala de estudos
 
@@ -15,6 +15,20 @@ class MusicCard extends React.Component {
     };
   }
 
+  async componentDidMount() {
+    // capta as músicas que estão no localstorage
+    const saveusic = await getFavoriteSongs();
+
+    // transforma aquele objeto que veio com todos os dados do album em uma chave com o nome da música e valor true.
+    // Ou seja, aquela já é uma música favoria e recarrega a página como marcado
+    const musicas = saveusic.reduce(
+      (acc, elem) => ({ ...acc, [elem.trackName]: true }), {},
+    );
+      // coloca o objeto criado em favorite music assim ao final do carregamento da página, depois q o html e todos os estados foram criados,
+      // ele atualiza o estado do objeto com as músicas que já são favoritas.
+    this.setState({ favoriteMusic: musicas });
+  }
+
   createObj = () => {
     const { musicsAlbum } = this.props;
     const { favoriteMusic } = this.state;
@@ -22,7 +36,7 @@ class MusicCard extends React.Component {
     const musicaKeys = Object.keys(favoriteMusic);
 
     const array = musicaKeys.map(
-      (elemento, index) => ({ [elemento]: favSongs[index] }),
+      (elem, index) => ({ [elem]: favSongs[index] }),
     );
 
     const valid = array.filter(
