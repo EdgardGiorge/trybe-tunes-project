@@ -21,9 +21,9 @@ class Header extends Component {
     return (
       <header data-testid="header-component">
         <div>
-          <Link to="/search" data-testid="link-to-search" />
-          <Link to="/favorites" data-testid="link-to-favorites" />
-          <Link to="/profile" data-testid="link-to-profile" />
+          <Link to="/search" data-testid="link-to-search"> Search </Link>
+          <Link to="/favorites" data-testid="link-to-favorites"> Favorites </Link>
+          <Link to="/profile" data-testid="link-to-profile"> Profile </Link>
         </div>
         {userName === '' ? <Loading />
           : <h2 data-testid="header-user-name">{ userName }</h2>}

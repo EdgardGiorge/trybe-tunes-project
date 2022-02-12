@@ -40,7 +40,7 @@ class Login extends Component {
     const objeto = { name: userName };
     this.setState({ logou: true });
     await createUser(objeto);
-    this.setState({ status: true });
+    this.setState({ logou: false, status: true });
   } // botão do Login clicado , libera o 'Carregndo...' com o status como true, na sequência a função createUser é acionada pra salvar o nome digitado. A patir dai o status muda pra false que retira o Carregando... da tela, muda o estado do logou pra true pra redirecionar pro search
 
   render() {
