@@ -3,26 +3,26 @@ import PropTypes from 'prop-types';
 
 class Form extends Component {
   render() {
-    const { value, onChange, disable, onClick } = this.props;
+    const { value, onChange, disable, onClick, id, data, dataBtn, text } = this.props;
     return (
       <form>
-        <label htmlFor="user">
+        <label htmlFor={ id }>
           <input
             name="userName"
             value={ value }
             type="text"
-            data-testid="login-name-input"
+            data-testid={ data }
             onChange={ onChange }
-            id="user"
+            id={ id }
           />
         </label>
         <button
           type="button"
-          data-testid="login-submit-button"
+          data-testid={ dataBtn }
           disabled={ disable }
           onClick={ onClick }
         >
-          Entrar
+          {text}
         </button>
       </form>
     );
@@ -34,6 +34,10 @@ Form.propTypes = {
   disable: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  data: PropTypes.string.isRequired,
+  dataBtn: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default Form;

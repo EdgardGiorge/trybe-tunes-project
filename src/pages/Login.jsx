@@ -53,6 +53,10 @@ class Login extends Component {
           onChange={ this.handleChange }
           disable={ btnDisable }
           onClick={ this.handleClick }
+          id="usuario"
+          text="Entrar"
+          data="login-name-input"
+          dataBtn="login-submit-button"
         />}
         { /* se logou === true, renderiza o componente Search. Caso o status === true, renderiza o componente Loading */ }
       </div>
